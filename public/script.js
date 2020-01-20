@@ -7,7 +7,8 @@ new Vue ({
       { title: "Product 2", id: 2, price: 9.99 },
       { title: "Product 3", id: 3, price: 9.99 }
     ],
-    cart: []
+    cart: [],
+    search: ""
   },
   methods: {
     addToCart: function(product) {
@@ -27,6 +28,21 @@ new Vue ({
           qty: 1
         });
       }
+    },
+    inc: function(item) {
+      item.qty++;
+      this.total += item.price;
+    },
+    dec: function(item) {
+      item.qty--;
+      this.total -= item.price;
+      if (item.qty <= 0) {
+        var i = this.cart.indexOf(item);
+        this.cart.splice(i, 1);
+      }
+    },
+    onSubmit: function() {
+      console.log("search");
     }
   },
   filters: {
