@@ -373,3 +373,15 @@ body {
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
+[v-clock] * {
+    display: none;
+}
+
+[v-clock] > #loading {
+    display: block;
+    padding: 1em;
+}
+
+#loading {
+    display: none;
+}
